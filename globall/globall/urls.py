@@ -24,6 +24,8 @@ urlpatterns = [
 
     #aca van las paths que apuntan a aplicaciones
 
-    path('login/', include('apps.login.urls'))
+    path('login/', include('apps.login.urls')),
+
+    path('acerca/', include('apps.acerca.urls'))
 ]
 
