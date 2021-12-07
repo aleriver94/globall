@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth
 from . import views
 
+
 urlpatterns = [
     #path('admin/', admin.site.urls),
 
@@ -25,9 +26,11 @@ urlpatterns = [
     path('login/', auth.LoginView.as_view(template_name="usuarios/login.html"), name='login'),
     path('logout/', auth.LogoutView.as_view(), name='logout'),
 
+
     #aca van las paths que apuntan a aplicaciones
 
     path('posts/', include('apps.posts.urls')),
     path('acerca/', include('apps.acerca.urls')),
+    path('signup/', include('apps.usuarios.urls')),
 ]
 

@@ -23,7 +23,7 @@
             <a href="{% url 'logout' %}">CERRAR SESION </a>
         {% else %}
             <a href="{% url 'login' %}">LOGIN</a>
-            <a href="">REGISTRO</a>
+            <a href="{% url 'signup' %}">REGISTRO</a>
         {% endif %}
             
     </div>
