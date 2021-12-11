@@ -7,4 +7,26 @@
     <br>
     <a href=" {% url 'index' %}">IR A INICIO</a>
 
+    {% for a in post %}
+
+        <br>
+        <br>
+        <br>
+        <p class="titulo">
+            <b>{{a.titulo}}</b><br>
+            <span>DESCRIPCION: {{a.descripcion}}</span><br>
+            <span>CATEGORIA: {{a.categoria}}</span><br>
+            {% if a.video != "vacio" %}
+            <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            {% endif %}
+            <br>
+            <a href="{% url 'posts:mostrar' a.pk %}">Comentarios</a>
+        </p>
+        <br>
+        <br>
+        <br>
+        {% endfor %}
+
 {% endblock contenido %}
+

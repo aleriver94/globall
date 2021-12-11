@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    {% for a in comentarios %}
+
+        <br>
+        <br>
+        <br>
+        <p class="titulo">
+            <span>{{a.descripcion}}</span><br>
+
+            
+        </p>
+        <br>
+        <br>
+        {% endfor %}
+
+        <a href="{% url 'posts:mostrar_posts' %}">IR A POSTS</a>
+
+        
+
+{% endblock contenido %}
