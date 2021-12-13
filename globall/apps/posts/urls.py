@@ -8,4 +8,6 @@ urlpatterns = [
     path('posts/', views.MostrarPosts, name = 'mostrar_posts'),
 
     path('mostrar/<int:pk>', views.MostrarComentarios, name='mostrar'),
+
+    path('Alta/', views.AltaPost.as_view(), name="alta_post"),
 ]
