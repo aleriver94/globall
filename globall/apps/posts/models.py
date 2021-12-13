@@ -15,8 +15,9 @@ class Post(models.Model):
 	titulo = models.CharField(max_length = 30)
 	descripcion = models.TextField(max_length = 400, null = False)
 	categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
-	video = models.CharField(max_length=300, null = True)
-
+	video = models.CharField(max_length=300, null = True,blank=True)
+	fecha = models.DateField(auto_now=False, auto_now_add=True, null=True)
+	imagen = models.ImageField(upload_to = 'imagenes_post', null=True)
 	def __str__(self):
 		return self.titulo
 

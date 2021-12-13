@@ -15,18 +15,26 @@
         <p class="titulo">
             <b>{{a.titulo}}</b><br>
             <span>DESCRIPCION: {{a.descripcion}}</span><br>
-            <span>CATEGORIA: {{a.categoria}}</span><br>
-            {% if a.video != "vacio" %}
+            <span>CATEGORIA: {{a.categoria}}</span><br> 
+            <span>{{a.fecha}}</span><br>
+            {% if a.imagen.url != NULL %}
+            <img src="{{a.imagen.url}}"width="300px" height="200px"><br>
+            {% endif %}
+
+            {% if a.video != NULL %}
             <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             
             {% endif %}
             <br>
             <a href="{% url 'posts:mostrar' a.pk %}">Comentarios</a>
+
         </p>
         <br>
         <br>
         <br>
         {% endfor %}
+
+        
 
 {% endblock contenido %}
 
