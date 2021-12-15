@@ -1,8 +1,8 @@
-from django.contrib import auth
 from django.db import models
 from django.conf import settings
-from apps.usuarios.models import Usuario
-from django.contrib.auth.models import User
+
+
+
 # Create your models here.
 
 
@@ -23,6 +23,7 @@ class Post(models.Model):
 	fecha = models.DateField(auto_now=False, auto_now_add=True, null=True)
 	imagen = models.ImageField(upload_to = 'imagenes_post', null=True, blank=True)
 	usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.PROTECT)
+
 	
 	def __str__(self):
 		return self.titulo
@@ -34,3 +35,6 @@ class Comentario(models.Model):
 
 	def __str__(self):
 		return (self.descripcion)
+
+
+#richTextField importar ckeditor para comentario_descripcion

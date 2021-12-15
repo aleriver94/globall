@@ -15,4 +15,4 @@ class Formulario_alta_comentario(forms.ModelForm):
     class Meta:
         model = Comentario
         fields= ['descripcion']
-        exclude = ('usuario', 'post',)
+        exclude = ('usuario',)

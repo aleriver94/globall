@@ -19,6 +19,13 @@ def MostrarPosts(request):
 
     return render(request,'posts/mostrarPosts.html', ctx)
 
+def DetallePost(request,pk):
+
+    p = Post.objects.get(pk = pk)
+    ctx = {}
+    ctx['post'] = p
+    return render(request, 'posts/detallePost.html', ctx)
+
 def MostrarComentarios(request, pk):
 
     post = Post.objects.get(pk=pk)
@@ -44,15 +51,17 @@ class AltaComentario(CreateView):
     model = 'Comentario'
     template_name = 'posts/alta_comentario.html'
     form_class = Formulario_alta_comentario
-    success_url = reverse_lazy('posts:mostrar')
 
     def form_valid(self, form):
-        x = self.kwargs['pk']
         form.instance.usuario = self.request.user
+        pk = self.kwargs['pk']
         #pasarobjeto post
-        p= Post.objects.get(pk=x)
-        form.instance.post = p
+        x = Post.objects.get(pk=pk)
+        form.instance.post = x
         return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('posts:mostrar_comentario', kwargs={'pk':self.kwargs['pk']})
 
 def FiltroxPersona(request, pk):
     categoria = Categoria.objects.get(pk=pk)

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+
+    {% if a.imagen.url != NULL %}
+        <img src="{{a.imagen.url}}"width="300px" height="200px"><br>
+    {% endif %}
+    <br>
+    <br>
+    <h1>{{ post.titulo }}</h1>
+    <h5>{{ post.fecha }}</h5>
+    <p>{{post.descripcion}}</p>
+    <br>
+    <br>
+    <br>
+    {% if a.video != NULL %}
+    <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+    {% endif %}
+
+    <b>{{a.nombre}}</b><br>
+    <br>
+    
+    <a href="{% url 'posts:mostrar_comentario' post.pk %}">Comentarios</a>
+    <a href="{% url 'posts:alta_comentario' post.pk %}">Comentar</a>
+
+    <br>
+
+
+{% endblock contenido %}
+
+<p>Birthday: {{ birthday|date:"M d, Y" }}</p>

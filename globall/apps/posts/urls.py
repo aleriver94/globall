@@ -13,6 +13,8 @@ urlpatterns = [
 
     path('AltaC/<int:pk>', views.AltaComentario.as_view(), name="alta_comentario"),
 
+    path('detallepost/<int:pk>', views.DetallePost, name ='detalle'),
+
     path('filtroPersona/<int:pk>', views.FiltroxPersona, name = 'filtroPersona'),
 
     path('filtroPaz/<int:pk>', views.FiltroxPaz, name = 'filtroPaz'),
