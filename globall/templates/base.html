@@ -6,32 +6,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type= "text/css" href="{% static 'css/main.css' %}">
-    
+    <link href="https://fonts.googleapis.com/css2? family = Poppins: ital, wght @ 0,400; 1,300; 1,400; 1,600 & display = swap">
+        <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
+        <!-- LINK CSS -->
+    <link rel="stylesheet" type= "text/css" href="{% static 'css/main.css' %}">    
     <title></title>
 </head>
 <body>
-
-    
-    <div class="menu">
-
-        <p>ACA VA A IR EL MENU</p>
-
-        <br>
-        {% if user.is_authenticated %}
-
-            <span>WELCOME {{ user.username }}</span>
-            <a href="{% url 'logout' %}">CERRAR SESION </a>
-        {% else %}
-            <a href="{% url 'login' %}">LOGIN</a>
-            <a href="{% url 'signup' %}">REGISTRO</a>
-        {% endif %}
-            
-    </div>
-
-    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg miMenu">
+            <div class="container-fluid">
+                <a class="navbar-brand px-5" href=" {% url 'index' %}">
+                    <img src="{% static 'img/globAllBlanco.svg' %}" alt="logo globALL" width="130" height="70">
+                </a>
+                <br>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><img id="menuHam" src="{% static 'img/svgMenu.svg' %}" alt="" width="25" height="25" style="border: none; box-shadow: none;" ></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav align-items-center itemsNavegacion">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href=" {% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                Categorias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroPersona' 3 %}">Personas</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroProsperidad' 4 %}">Prosperidad</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroPlaneta' 5 %}">Planeta</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroPaz' 7 %}">Paz</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroAlianza' 6 %}">Alianzas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                Acerca de
+                            </a>
+                            <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'acerca:las_ods' %}">¿Qué son las ODS?</a></li>
+                                <li><a class="dropdown-item" href="{% url 'acerca:acerca_nosotros' %}">¿Quiénes somos?</a></li>
+                            </ul>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <span>Bienvenido {{ user.username }}</span>
+                            <a class="btn btn-outline-success" id="buttonLogin" href="{% url 'logout' %}">Cerrar Sesion</a>
+                        {% else %}
+                            <a class="btn btn-outline-success" id="buttonLogin" href="{% url 'login' %}">Login</a>
+                            <a class="btn btn-outline-success" id="buttonLogin" href="{% url 'signup' %}">Registro</a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+    </header>
     {% block contenido %}
 
     {% endblock contenido %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

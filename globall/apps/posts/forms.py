@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Comentario, Post
 from apps.usuarios.models import Usuario
 
 
@@ -11,3 +11,8 @@ class Formulario_alta_post(forms.ModelForm):
         exclude = ('usuario',)
     
 
+class Formulario_alta_comentario(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields= ['descripcion']
+        exclude = ('usuario', 'post',)

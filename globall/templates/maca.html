@@ -20,7 +20,7 @@ INDEX
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg miMenu">
                 <div class="container-fluid">
-                    <a class="navbar-brand px-5" href="/index.html">
+                    <a class="navbar-brand px-5" href=" {% url 'index' %}">
                         <img src="./img/globAllBlanco.svg" alt="logo globALL" width="130" height="70">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,27 +29,27 @@ INDEX
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center itemsNavegacion">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                                <a class="nav-link" aria-current="page" href=" {% url 'index' %}">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/pages/categorias.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                     Categorias
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./pages/catPersonas.html">Personas</a></li>
-                                    <li><a class="dropdown-item" href="./pages/catProsperidad.html">Prosperidad</a></li>
-                                    <li><a class="dropdown-item" href="./pages/catPlaneta.html">Planeta</a></li>
-                                    <li><a class="dropdown-item" href="./pages/catPaz.html">Paz</a></li>
-                                    <li><a class="dropdown-item" href="./pages/catAlianza.html">Alianzas</a></li>
+                                    <li><a class="dropdown-item" href=" {% url 'personas' %}">Personas</a></li>
+                                    <li><a class="dropdown-item" href=" {% url 'prosperidad' %}">Prosperidad</a></li>
+                                    <li><a class="dropdown-item" href=" {% url 'planeta' %}">Planeta</a></li>
+                                    <li><a class="dropdown-item" href=" {% url 'paz' %}">Paz</a></li>
+                                    <li><a class="dropdown-item" href=" {% url 'alianzas' %}">Alianzas</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/pages/acercaDe.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                     Acerca de
                                 </a>
                                 <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="./pages/ods.html">¿Qué son las ODS?</a></li>
-                                    <li><a class="dropdown-item" href="./pages/quienesSomos.html">¿Quiénes somos?</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'acerca:las_ods' %}">¿Qué son las ODS?</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'acerca:acerca_nosotros' %}">¿Quiénes somos?</a></li>
                                 </ul>
                             </li>
                             <button class="btn btn-outline-success" type="submit" id="buttonLogin" data-toggle="modal" data-target="#exampleModalCenter">Login</button>
@@ -57,19 +57,16 @@ INDEX
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <form>
+                                            <form method="POST">{%csrf_token%}
+                                                {{form.errors}}
                                                 <img class="mb-4" src="./img/globAllVerde.svg" alt="" width="120" height="150">
                                                 <h1 class="h4 mb-4 fw-normal" id="login">Login</h1>
                                                 <div class="form-floating" id="form-floating">
-                                                    <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
-                                                    <label for="floatingInput">Dirección de correo electrónico</label>
-                                                </div>
-                                                <div class="form-floating" id="form-floating">
-                                                    <input type="password" class="form-control" id="floatingPassword" placeholder="nombreDeUsuario">
+                                                    <input type="text" class="form-control" id="floatingPassword" name="username" placeholder="USUARIO">
                                                     <label for="floatingPassword">Nombre de usuario</label>
                                                 </div>
                                                 <div class="form-floating" id="form-floating">
-                                                    <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña">
+                                                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="PASSWORD">
                                                     <label for="floatingPassword">Contraseña</label>
                                                 </div>
                                                 <div class="checkbox mb-3">
@@ -78,7 +75,7 @@ INDEX
                                                     </label>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" id="butooo" class="close" data-dismiss="modal" aria-label="Close">Registrarse</button>
+                                                    <input type="submit" id="butooo" class="close" data-dismiss="modal" value="ENVIAR" aria-label="Close">Registrarse</input>
                                                 </div>
                                             </form>
                                         </div>
@@ -96,16 +93,16 @@ INDEX
                                                 <img class="mb-4" src="./img/globAllVerde.svg" alt="" width="120" height="150">
                                                 <h1 class="h4 mb-4 fw-normal">Registro</h1>
                                                 <div class="form-floating" id="form-floating">
-                                                    <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
-                                                    <label for="floatingInput">Dirección de correo electrónico</label>
-                                                </div>
-                                                <div class="form-floating" id="form-floating">
                                                     <input type="password" class="form-control" id="floatingPassword" placeholder="nombreDeUsuario">
                                                     <label for="floatingPassword">Nombre de usuario</label>
                                                 </div>
                                                 <div class="form-floating" id="form-floating">
                                                     <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña">
                                                     <label for="floatingPassword">Contraseña</label>
+                                                </div>
+                                                <div class="form-floating" id="form-floating">
+                                                    <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña">
+                                                    <label for="floatingPassword">Contraseña 2</label>
                                                 </div>
                                                 <div class="checkbox mb-3">
                                                     <label>
@@ -127,10 +124,10 @@ INDEX
         </header>
         <main>
             <section>
-                <div class="container">
+                <div class="container" name= "POSTEOS DEL INDEX">
                     <div class="row">
-                        <div class="col-md-9" >
-                            <article class="containerNoticias">
+                        <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
+                            <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
                                 <figure>
                                     <img class="imgPosteoPrincipal" src="./img/PokemonPi.jpg" alt="imgPosteoPrincipal">
                                 </figure>
@@ -149,7 +146,7 @@ INDEX
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-6" >
-                                            <article class="containerNoticias">
+                                            <article class="containerNoticias" name="ACA IRIAN UNO DE DOS POSTEOS CUALQUIERA O SI SE ANTOJA LOS ULTIMOS DOS PUBLICADOS">
                                                 <figure>
                                                     <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
                                                 </figure>
@@ -165,7 +162,7 @@ INDEX
                                             </article>
                                         </div>
                                         <div class="col-md-6" >
-                                            <article class="containerNoticias">
+                                            <article class="containerNoticias" name="ACA IRIAN UNO DE DOS POSTEOS CUALQUIERA O SI SE ANTOJA LOS ULTIMOS DOS PUBLICADOS">
                                                 <figure>
                                                     <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
                                                 </figure>
@@ -184,7 +181,7 @@ INDEX
                                 </div>
                             </section>
                         </div>
-                        <div class="col-md-3 containerLosMasVistos" >
+                        <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
                             <div class="containerSearch">
                                 <form class="d-flex">
                                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -193,9 +190,9 @@ INDEX
                                     <h3>Los más vistos</h3>
                                 </div>
                             </div>
-                            <div class="container">
+                            <div class="container" name="POSTS MAS VISITADOS">
                                 <div class="row">
-                                    <div class="col-md-12" >
+                                    <div class="col-md-12" name="PRIMER POST MAS VISITADO">
                                         <div class="containerNoticias">
                                             <time class="articleDate">Noviembre 20 2021</time>
                                             <a href="./pages/catPlanetaDetalle.html"><span><p>Planeta</p></span></a>
@@ -209,8 +206,8 @@ INDEX
                                             <hr>
                                         </div>
                                     </div>
-                                    <div class="col-md-12" >
-                                        <div class="containerNoticias">
+                                    <div class="col-md-12" name="SEGUNDO POST MAS VISITADO">
+                                        <div class="containerNoticias" name="">
                                             <time class="articleDate">Noviembre 20 2021</time>
                                             <a href="./pages/catAlianzaDetalle.html"><span><p>Alianza</p></span></a>
                                             <h4>Lorem ipsum, dolor sit amet consectetur </h4>
@@ -223,7 +220,7 @@ INDEX
                                             <hr>
                                         </div>
                                     </div>
-                                    <div class="col-md-12" >
+                                    <div class="col-md-12" name="TERCER POST MAS VISITADO">
                                         <div class="containerNoticias">
                                             <time class="articleDate">Noviembre 20 2021</time>
                                             <a href="./pages/catPersonas.html"><span><p>Persona</p></span></a>
@@ -247,36 +244,9 @@ INDEX
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12  col-md-6 text-center col-lg-6 text-start" >
-                        <h3 id="redeSociales">Subscribe to our Newsletter</h3>
-                        <label for="email">
-                            <input type="email" id="email" placeholder="ingrese su mail"> 
-                        </label>
-                        <button type="button" id="buttonSend" data-toggle="modal" data-target="#exampleModalCenter2">
-                            Enviar
-                        </button>
-                        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Ya eres de nuestro equipo ¡Muchas gracias!</h5>
-                                        <button type="button" id="buttomClose" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h6>Te has registrado en nuestro newsletter de noticias, en breve recibirás todas las nuevas actualizaciones y novedades de globALL</h6>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" id="butooo" class="close" data-dismiss="modal" aria-label="Close">Ok</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12  col-md-6 text-center col-lg-6 justify-content-start" >
-                        <h3 id="redeSociales">Contactos</h3>
-                        <div class="enlaceRedes">
+                    <div class="col-sm-12  col-md-12 text-center col-lg-12 justify-content-start" >
+                        <h3 id="redeSociales">Contactanos</h3>
+                        <div class="enlaceRedes" name="CREAR REDES">
                             <a href="https://www.instagram.com/globAll/"><img class="instagram" src="../img/instagram.png" alt="logo de instagram"></a>
                             <a href="https://www.twitter.com/globAll"><img class="twitter" src="../img/twitter.png" alt="logo de twitter"></a>
                             <a href=""><img  class="discord" src="../img/discord.png" alt="logo de discord"></a>
@@ -297,88 +267,9 @@ INDEX
 
 QUIENES SOMOS
 
-<main>
-            <section>
-                <div class="row justify-content-center">
-                    <div>
-                        <h1 class="tituloCategorias">Sobre nosotros</h1>
-                    </div>
-            </section>
-            <section class="sectionCards">
-                <div class="containerCards">
-                    <div class="cards">
-                        <div class="cardIntegrante">
-                            <h3 class="card-tittle-large">Nombre</h3>
-                            <h5 class="card-tittle-small">Nombre</h5>
-                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                        </div>
-                        <div class="cards">
-                            <div class="cardIntegrante">
-                                <h3 class="card-tittle-large">Nombre</h3>
-                                <h5 class="card-tittle-small">Nombre</h5>
-                                <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                            </div>
-                        </div>
-                        <div class="cards">
-                            <div class="cardIntegrante">
-                                <h3 class="card-tittle-large">Nombre</h3>
-                                <h5 class="card-tittle-small">Nombre</h5>
-                                <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                            </div>
-                        </div>
-                        <div class="cards">
-                            <div class="cardIntegrante">
-                                <h3 class="card-tittle-large">Nombre</h3>
-                                <h5 class="card-tittle-small">Nombre</h5>
-                                <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                            </div>
-                        </div>
-                        <div class="cards">
-                            <div class="cardIntegrante">
-                                <h3 class="card-tittle-large">Nombre</h3>
-                                <h5 class="card-tittle-small">Nombre</h5>
-                                <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                            </div>
-                        </div>
-                        <div class="cards">
-                            <div class="cardIntegrante">
-                                <h3 class="card-tittle-large">Nombre</h3>
-                                <h5 class="card-tittle-small">Nombre</h5>
-                                <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
 
 ODS
 
-        <main>
-            <section>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div>
-                            <h1 class="tituloCategorias">ODS</h1>
-                        </div>
-                        <div class="col-md-6" >
-                            <div class="container">
-                                <img class="imgPosteoSecundario" src="../img/pokemon.jpg" alt="imgPosteoSecundario">
-                            </div>
-                        </div>
-                        <div class="col-md-6" >
-                            <div class="containerNoticiasOds">
-                                <span class="tituloOds"><p>¿Qué son los 17 ODS?</p></span>
-                                <p>Los Objetivos de Desarrollo Sostenible, también conocidos como Objetivos Mundiales, se adoptaron por todos los Estados Miembros en 2015 como un llamado universal para poner fin a la pobreza, proteger el planeta y garantizar que todas las personas gocen de paz y prosperidad para 2030.
-                                    Los 17 ODS están integrados, ya que reconocen que las intervenciones en un área afectarán los resultados de otras y que el desarrollo debe equilibrar la sostenibilidad medio ambiental, económica y social.
-                                    Siguiendo la promesa de no dejar a nadie atrás, los países se han comprometido a acelerar el progreso para aquellos más atrasados. Es por esto que los ODS han sido diseñados para traer al mundo varios “ceros” que cambien la vida, lo que incluye pobreza cero, hambre cero, SIDA cero y discriminación cero contra las mujeres y niñas.
-                                    Todo el mundo es necesario para alcanzar estos objetivos ambiciosos. Se necesita la creatividad, el conocimiento, la tecnología y los recursos financieros de toda la sociedad para conseguir los ODS en cada contexto.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
 
 CAT PROSP
 <main>

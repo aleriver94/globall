@@ -1,15 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
 
+    <main>
+        <section>
+            <div class="row justify-content-center">
+                <div>
+                    <h1 class="tituloCategorias">Sobre nosotros</h1>
+                </div>
+        </section>
+        <section class="sectionCards">
+            <div class="containerCards">
+                <div class="cards">
+                    <div class="cardIntegrante">
+                        <h3 class="card-tittle-large">Torres</h3>
+                        <h5 class="card-tittle-small">Torres Luis Alejandro</h5>
+                        <p class="card-description"> Project Manager, Full Stack Developer</p>
+                    </div>
+                    <div class="cards">
+                        <div class="cardIntegrante">
+                            <h3 class="card-tittle-large">Apellido</h3>
+                            <h5 class="card-tittle-small">Nombre completo</h5>
+                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="cardIntegrante">
+                            <h3 class="card-tittle-large">Apellido</h3>
+                            <h5 class="card-tittle-small">Nombre completo</h5>
+                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="cardIntegrante">
+                            <h3 class="card-tittle-large">Apellido</h3>
+                            <h5 class="card-tittle-small">Nombre completo</h5>
+                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="cardIntegrante">
+                            <h3 class="card-tittle-large">Apellido</h3>
+                            <h5 class="card-tittle-small">Nombre completo</h5>
+                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<h1>SOY EL ACERCA DE NOSOTROS</h1>
-
-<a href=" {% url 'index' %}">IR A INICIO</a>
-
-
-</body>
-</html>
+{% endblock contenido %}

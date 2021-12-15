@@ -30,6 +30,7 @@ class Post(models.Model):
 class Comentario(models.Model):
 	descripcion = models.TextField(max_length = 1000, null = False)
 	post = models.ForeignKey(Post, on_delete = models.CASCADE)
+	usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.PROTECT)
 
 	def __str__(self):
 		return (self.descripcion)

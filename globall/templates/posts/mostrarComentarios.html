@@ -8,15 +8,18 @@
         <br>
         <br>
         <p class="titulo">
-            <span>{{a.descripcion}}</span><br>
+        <span>{{a.usuario}}</span><br>
+        <span>{{a.descripcion}}</span><br>
 
             
         </p>
         <br>
         <br>
-        {% endfor %}
+    {% endfor %}
 
-        <a href="{% url 'posts:mostrar_posts' %}">IR A POSTS</a>
+    
+
+    <a href="{% url 'posts:mostrar_posts' %}">IR A POSTS</a>
 
         
 

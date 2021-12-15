@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block contenido %}
+{% load static %}
+<main>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div>
+                    <h1 class="tituloCategorias">ODS</h1>
+                </div>
+                <div class="col-md-6" >
+                    <div class="container">
+                        <img class="imgPosteoSecundario" src="{% static 'img/ods.jpg' %}" alt="imgPosteoSecundario">
+                    </div>
+                </div>
+                <div class="col-md-6" >
+                    <div class="containerNoticiasOds">
+                        <span class="tituloOds"><p>¿Qué son los 17 ODS?</p></span>
+                        <p>Los Objetivos de Desarrollo Sostenible, también conocidos como Objetivos Mundiales, se adoptaron por todos los Estados Miembros en 2015 como un llamado universal para poner fin a la pobreza, proteger el planeta y garantizar que todas las personas gocen de paz y prosperidad para 2030.
+                            Los 17 ODS están integrados, ya que reconocen que las intervenciones en un área afectarán los resultados de otras y que el desarrollo debe equilibrar la sostenibilidad medio ambiental, económica y social.
+                            Siguiendo la promesa de no dejar a nadie atrás, los países se han comprometido a acelerar el progreso para aquellos más atrasados. Es por esto que los ODS han sido diseñados para traer al mundo varios “ceros” que cambien la vida, lo que incluye pobreza cero, hambre cero, SIDA cero y discriminación cero contra las mujeres y niñas.
+                            Todo el mundo es necesario para alcanzar estos objetivos ambiciosos. Se necesita la creatividad, el conocimiento, la tecnología y los recursos financieros de toda la sociedad para conseguir los ODS en cada contexto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock contenido %}

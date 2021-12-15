@@ -326,6 +326,56 @@ box-shadow: 0px 0px 9px rgb(0,0,0,.35);
   grid-gap: 1.5rem ;
 }
 
+.cardIntegrante1{
+  background-color: #f5b400;
+  color: #fff;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 10px 10px;
+  box-shadow: 0px 0px 5px rgb(0,0,0,.50);
+}
+.cardIntegrante2{
+  background-color: #316ee0;
+  color: #fff;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 10px 10px;
+  box-shadow: 0px 0px 5px rgb(0,0,0,.50);
+}
+.cardIntegrante3{
+  background-color: #26d474;
+  color: #fff;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 10px 10px;
+  box-shadow: 0px 0px 5px rgb(0,0,0,.50);
+}
+.cardIntegrante4{
+  background-color: #dff32f;
+  color: #fff;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 10px 10px;
+  box-shadow: 0px 0px 5px rgb(0,0,0,.50);
+}
+.cardIntegrante5{
+  background-color: #9e1e7e;
+  color: #fff;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 10px 10px;
+  box-shadow: 0px 0px 5px rgb(0,0,0,.50);
+}
 .cardIntegrante{
   background-color: #bfbfbf;
   color: #fff;

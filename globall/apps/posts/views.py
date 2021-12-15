@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .models import Post, Categoria, Comentario
-from .forms import Formulario_alta_post
+from .forms import Formulario_alta_post, Formulario_alta_comentario
 from apps.usuarios.models import Usuario
 
 # Create your views here.
@@ -39,3 +39,71 @@ class AltaPost(CreateView):
     def form_valid(self, form):
         form.instance.usuario = self.request.user
         return super().form_valid(form)
+
+class AltaComentario(CreateView):
+    model = 'Comentario'
+    template_name = 'posts/alta_comentario.html'
+    form_class = Formulario_alta_comentario
+    success_url = reverse_lazy('posts:mostrar')
+
+    def form_valid(self, form):
+        x = self.kwargs['pk']
+        form.instance.usuario = self.request.user
+        #pasarobjeto post
+        p= Post.objects.get(pk=x)
+        form.instance.post = p
+        return super().form_valid(form)
+
+def FiltroxPersona(request, pk):
+    categoria = Categoria.objects.get(pk=pk)
+
+    p = Post.objects.filter(categoria = categoria)
+
+    ctx = {}
+    ctx['post'] = p
+
+    return render(request, 'categorias/filtroXPersona.html', ctx)
+
+def FiltroxPaz(request, pk):
+    categoria = Categoria.objects.get(pk=pk)
+
+    p = Post.objects.filter(categoria = categoria)
+
+    ctx = {}
+    ctx['post'] = p
+    ctx['categoria'] = categoria
+
+    return render(request, 'categorias/filtroXPaz.html', ctx)
+
+def FiltroxPlaneta(request, pk):
+    categoria = Categoria.objects.get(pk=pk)
+
+    p = Post.objects.filter(categoria = categoria)
+
+    ctx = {}
+    ctx['post'] = p
+    ctx['categoria'] = categoria
+
+    return render(request, 'categorias/filtroXPlaneta.html', ctx)
+
+def FiltroxProsperidad(request, pk):
+    categoria = Categoria.objects.get(pk=pk)
+
+    p = Post.objects.filter(categoria = categoria)
+
+    ctx = {}
+    ctx['post'] = p
+    ctx['categoria'] = categoria
+
+    return render(request, 'categorias/filtroXProsperidad.html', ctx)
+
+def FiltroxAlianza(request, pk):
+    categoria = Categoria.objects.get(pk=pk)
+
+    p = Post.objects.filter(categoria = categoria)
+
+    ctx = {}
+    ctx['post'] = p
+    ctx['categoria'] = categoria
+
+    return render(request, 'categorias/filtroXAlianza.html', ctx)
