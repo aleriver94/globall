@@ -3,8 +3,8 @@
 {% block contenido %}
 
 
-    {% if a.imagen.url != NULL %}
-        <img src="{{a.imagen.url}}"width="300px" height="200px"><br>
+    {% if post.imagen.url != NULL %}
+        <img src="{{post.imagen.url}}"width="300px" height="200px"><br>
     {% endif %}
     <br>
     <br>
@@ -19,7 +19,7 @@
     
     {% endif %}
 
-    <b>{{a.nombre}}</b><br>
+    <b>{{post.nombre}}</b><br>
     <br>
     
     <a href="{% url 'posts:mostrar_comentario' post.pk %}">Comentarios</a>

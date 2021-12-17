@@ -5,6 +5,33 @@
     <section>
         <div class="container" name= "POSTEOS DEL INDEX">
             <div class="row">
+                {% for a in post %}
+                <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
+                    <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
+                        <figure>
+                            <img class="imgPosteoPrincipal" src={{a.imagen.url}} alt="imgPosteoPrincipal">
+                        </figure>
+                        <div>
+                            <time class="articleDate">{{a.fecha}} by {{a.usuario}}</time>
+                            <span><p>{{a.categoria}}</p></span>
+                            <h1>{{a.titulo}}</h1>
+                            <p>{{a.descripcion}}</p>
+                            <a href="{% url 'posts:detalle' a.pk %}">Leer más</a>
+                            <br>
+
+                            {% if a.video != NULL %}
+                            <div>
+                                <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            
+                            {% endif %}
+                            <br>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
+
+                
                 <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
                     <div class="containerSearch">
                         <form class="d-flex">
@@ -61,34 +88,6 @@
                         </div>
                     </div>
                 </div>    
-                {% for a in post %}
-                <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
-                    <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
-                        <figure>
-                            <img class="imgPosteoPrincipal" src={{a.imagen.url}} alt="imgPosteoPrincipal">
-                        </figure>
-                        <div>
-                            <time class="articleDate">{{a.fecha}} by {{a.usuario}}</time>
-                            <span><p>{{a.categoria}}</p></span>
-                            <h1>{{a.titulo}}</h1>
-                            <p>{{a.descripcion}}</p>
-                            <a href="{% url 'posts:detalle' a.pk %}">Leer más</a>
-                            <br>
-
-                            {% if a.video != NULL %}
-                            <div>
-                                <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            
-                            {% endif %}
-                            <br>
-                        </div>
-                    </article>
-                </div>
-                {% endfor %}
-
-                
-                
             </div>
         </div>
     </section>

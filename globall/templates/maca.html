@@ -123,64 +123,33 @@ INDEX
             </nav> 
         </header>
         <main>
+            
             <section>
                 <div class="container" name= "POSTEOS DEL INDEX">
                     <div class="row">
+                        {% for a in post %}
                         <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
                             <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
                                 <figure>
-                                    <img class="imgPosteoPrincipal" src="./img/PokemonPi.jpg" alt="imgPosteoPrincipal">
+                                    <img class="imgPosteoPrincipal" src={{a.imagen.url}} alt="imgPosteoPrincipal">
                                 </figure>
                                 <div>
-                                    <time class="articleDate">Diciembre 6 2021</time>
-                                    <a href="./pages/catPlaneta.html"><span><p>Planeta</p></span></a>
-                                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.  </h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque recusandae eum possimus ipsam, minus optio est. Dignissimos porro, vel, reiciendis tenetur ex nostrum nam eum voluptatum, sint magni ea?
-                                    Earum dignissimos ut soluta consequuntur, incidunt nisi quos cum itaque accusantium, voluptate tempore voluptas. Facere asperiores hic id illum officia eaque repudiandae vitae quia atque ipsum. Nulla quasi recusandae aspernatur.
-                                    Sequi quasi ab accusamus nam animi libero cumque tempora saepe quidem voluptatum laboriosam praesentium beatae officia soluta ipsa minus velit neque, pariatur perspiciatis labore eius. Nostrum omnis eius eos sint.</p>
-                                    <a href="./pages/catPlanetaDetalle.html">Leer más</a>
-                                    <hr>
+                                    <time class="articleDate">{{a.fecha}} by {{a.usuario}}</time>
+                                    <span><p>{{a.categoria}}</p></span>
+                                    <h1>{{a.titulo}}</h1>
+                                    <p>{{a.descripcion}}</p>
+                                    <a href="{% url 'posts:detalle' a.pk %}">Leer más</a>
+
+                                    {% if a.video != NULL %}
+                                    <div>
+                                        <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    
+                                    {% endif %}
                                 </div>
                             </article>
-                            <section>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6" >
-                                            <article class="containerNoticias" name="ACA IRIAN UNO DE DOS POSTEOS CUALQUIERA O SI SE ANTOJA LOS ULTIMOS DOS PUBLICADOS">
-                                                <figure>
-                                                    <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
-                                                </figure>
-                                                <div>
-                                                    <time class="articleDate">Diciembre 3 2021</time>
-                                                    <a href="./pages/catAlianza.html"><span><p>Alianza</p></span></a>
-                                                    <h2>Lorem ipsum, dolor sit amet consectetur </h2>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque recusandae eum possimus ipsam, minus optio est. Dignissimos porro, vel, reiciendis tenetur ex nostrum nam eum voluptatum, sint magni ea?
-                                                    Earum dignissimos ut soluta consequuntur, incidunt nisi quos cum itaque accusantium, voluptate tempore voluptas. Facere asperiores hic id illum officia eaque repudiandae vitae quia atque ipsum. Nulla quasi recusandae aspernatur.
-                                                    Sequi quasi ab accusamus nam animi libero cumque tempora saepe quidem voluptatum laboriosam praesentium beatae officia soluta ipsa minus velit neque, pariatur perspiciatis labore eius. Nostrum omnis eius eos sint.</p>
-                                                    <a href="./pages/catAlianzaDetalle.html">Leer más</a>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div class="col-md-6" >
-                                            <article class="containerNoticias" name="ACA IRIAN UNO DE DOS POSTEOS CUALQUIERA O SI SE ANTOJA LOS ULTIMOS DOS PUBLICADOS">
-                                                <figure>
-                                                    <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
-                                                </figure>
-                                                <div>
-                                                    <time class="articleDate">Noviembre 22 2021</time>
-                                                    <a href="./pages/catPaz.html"><span><p>Paz</p></span></a>
-                                                    <h2>Lorem ipsum, dolor sit amet consectetur </h2>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque recusandae eum possimus ipsam, minus optio est. Dignissimos porro, vel, reiciendis tenetur ex nostrum nam eum voluptatum, sint magni ea?
-                                                    Earum dignissimos ut soluta consequuntur, incidunt nisi quos cum itaque accusantium, voluptate tempore voluptas. Facere asperiores hic id illum officia eaque repudiandae vitae quia atque ipsum. Nulla quasi recusandae aspernatur.
-                                                    Sequi quasi ab accusamus nam animi libero cumque tempora saepe quidem voluptatum laboriosam praesentium beatae officia soluta ipsa minus velit neque, pariatur perspiciatis labore eius. Nostrum omnis eius eos sint.</p>
-                                                    <a href="./pages/catPaz.html">Leer más</a>
-                                                </div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
                         </div>
+                        {% endif %}
                         <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
                             <div class="containerSearch">
                                 <form class="d-flex">
