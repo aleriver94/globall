@@ -16,8 +16,8 @@ class Categoria(models.Model):
 
 
 class Post(models.Model):
-	titulo = models.CharField(max_length = 30)
-	descripcion = models.TextField(max_length = 400, null = False)
+	titulo = models.CharField(max_length = 150)
+	descripcion = models.TextField(max_length = 9000, null = False)
 	categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
 	video = models.CharField(max_length=300, null = True, blank=True)
 	fecha = models.DateField(auto_now=False, auto_now_add=True, null=True)

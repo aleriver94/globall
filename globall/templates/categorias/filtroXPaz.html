@@ -2,36 +2,95 @@
 
 {% block contenido %}
 
-    <br>
+    <section>
+        <div class="container" name= "POSTEOS DEL INDEX">
+            <div class="row">
+                {% for a in post %}
+                <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
+                    <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
+                        <figure>
+                            <img class="imgPosteoPrincipal" src={{a.imagen.url}} alt="imgPosteoPrincipal">
+                        </figure>
+                        <div>
+                            <time class="articleDate">{{a.fecha}} by {{a.usuario}}</time>
+                            <span><p>{{a.categoria}}</p></span>
+                            <h1>{{a.titulo}}</h1>
+                            <p>{{a.descripcion}}</p>
+                            <a href="{% url 'posts:detalle' a.pk %}">Leer más</a>
+                            <br>
 
-    <span>Aca van los post de categoria Paz</span>
+                            {% if a.video != NULL %}
+                            <div>
+                                <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            
+                            {% endif %}
+                            <br>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
 
-        
-    {% for a in post %}
-        <br>
-        <br>
-        <br>
-        <p class="titulo">
-            <b>{{a.titulo}}</b><br>
-            <span>DESCRIPCION: {{a.descripcion}}</span><br>
-            <span>CATEGORIA: {{a.categoria}}</span><br> 
-            <span>{{a.fecha}}</span><br>
-            <span>{{a.usuario}}</span><br>
-            {% if a.imagen.url != NULL %}
-            <img src="{{a.imagen.url}}"width="300px" height="200px"><br>
-            {% endif %}
-
-            {% if a.video != NULL %}
-            <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            
-            {% endif %}
-            <br>
-            
-
-        </p>
-        <br>
-        <br>
-        <br>
-    {% endfor %}
+                
+                <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
+                    <div class="containerSearch">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                        <div class="container">
+                            <h3>Los más vistos</h3>
+                        </div>
+                    </div>
+                    <div class="container" name="POSTS MAS VISITADOS">
+                        <div class="row">
+                            <div class="col-md-12" name="PRIMER POST MAS VISITADO">
+                                <div class="containerNoticias">
+                                    <time class="articleDate">Noviembre 20 2021</time>
+                                    <a href="./pages/catPlanetaDetalle.html"><span><p>Planeta</p></span></a>
+                                    <h4>Lorem ipsum, dolor sit amet consectetur </h4>
+                                    <a class="linkPosteos" href="./pages/catPlanetaDetalle.html">Leer más</a>
+                                </div>
+                                <div class="containerNoticias">
+                                    <figure>
+                                        <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
+                                    </figure>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-md-12" name="SEGUNDO POST MAS VISITADO">
+                                <div class="containerNoticias" name="">
+                                    <time class="articleDate">Noviembre 20 2021</time>
+                                    <a href="./pages/catAlianzaDetalle.html"><span><p>Alianza</p></span></a>
+                                    <h4>Lorem ipsum, dolor sit amet consectetur </h4>
+                                    <a class="linkPosteos" href="./pages/catAlianzaDetalle.html">Leer más</a>
+                                </div>
+                                <div class="containerNoticias">
+                                    <figure>
+                                        <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
+                                    </figure>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-md-12" name="TERCER POST MAS VISITADO">
+                                <div class="containerNoticias">
+                                    <time class="articleDate">Noviembre 20 2021</time>
+                                    <a href="./pages/catPersonas.html"><span><p>Persona</p></span></a>
+                                    <h4>Lorem ipsum, dolor sit amet consectetur </h4>
+                                    <a class="linkPosteos" href="./pages/catPersonasDetalle.html">Leer más</a>
+                                </div>
+                                <div class="containerNoticias">
+                                    <figure>
+                                        <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
+                                    </figure>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </section>
 
 {% endblock contenido %}
+

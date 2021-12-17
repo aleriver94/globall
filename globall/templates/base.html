@@ -34,6 +34,7 @@
                                 Categorias
                             </a>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'posts:mostrar_posts' %}">Todas</a></li>
                                 <li><a class="dropdown-item" href="{% url 'posts:filtroPersona' 3 %}">Personas</a></li>
                                 <li><a class="dropdown-item" href="{% url 'posts:filtroProsperidad' 4 %}">Prosperidad</a></li>
                                 <li><a class="dropdown-item" href="{% url 'posts:filtroPlaneta' 5 %}">Planeta</a></li>
@@ -51,11 +52,11 @@
                             </ul>
                         </li>
                         {% if user.is_authenticated %}
-                            <span>Bienvenido {{ user.username }}</span>
-                            <a class="btn btn-outline-success" id="buttonLogin" href="{% url 'logout' %}">Cerrar Sesion</a>
+                            <span id="usuarioBienvenido">Bienvenido {{ user.username }}</span> 
+                            <a class="btn btn-outline-success" id="buttonSignUp" href="{% url 'logout' %}">Cerrar Sesion</a>
                         {% else %}
                             <a class="btn btn-outline-success" id="buttonLogin" href="{% url 'login' %}">Login</a>
-                            <a class="btn btn-outline-success" id="buttonLogin" href="{% url 'signup' %}">Registro</a>
+                            <a class="btn btn-outline-success" id="buttonSignUp" href="{% url 'signup' %}">Registro</a>
                         {% endif %}
                     </ul>
                 </div>
@@ -65,9 +66,24 @@
     {% block contenido %}
 
     {% endblock contenido %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12  col-md-12 text-center col-lg-12 justify-content-start" >
+                    <h3 id="redeSociales">Contactanos</h3>
+                    <div class="enlaceRedes" name="CREAR REDES">
+                        <a href="https://www.instagram.com/globAll/"><img class="instagram" src="{% static 'img/instagram.png' %}" alt="logo de instagram"></a>
+                        <a href="https://www.twitter.com/globAll"><img class="twitter" src= "{% static 'img/twitter.png' %}" alt="logo de twitter"></a>
+                        <a href=""><img  class="discord" src="{% static 'img/discord.png' %}" alt="logo de discord"></a>
+                        <a href=""><img class="gmail" src= "{% static 'img/gmail.png' %}" alt="logo de gmail"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
 </html>

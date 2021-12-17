@@ -435,15 +435,30 @@ button {
   padding: 0rem 1rem;
 }
 
+.button { 
+  height: 2rem;
+  width: auto;
+  color: #3DA35D;
+  text-transform: none;
+  background-color: none;
+  border:#3DA35D;
+  border-radius: 5px 5px 5px 5px;
+  margin: 2rem;
+}
+
+
 #buttonLogin{
 color: #E8FCCF;
 border-color: #E8FCCF;
+margin: 0.5rem;
+height: 2rem;
 }
 
 #buttonLogin:hover { 
   background-color: #E8FCCF;
   color: #3DA35D;
   transform: scale(1.1);
+  font-size: 1rem;
 }
 
 #butooo:hover { 
@@ -455,6 +470,23 @@ border-color: #E8FCCF;
 #buttomClose{
   width: 2rem;
   height: 1.5rem;
+}
+
+#usuarioBienvenido{
+  color: #E8FCCF;
+  font-weight: lighter;
+  margin-top: 0.3rem;
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+}
+
+#buttonSignUp{ 
+  background-color: #f5f5f5;
+  color: #3DA35D;
+  margin: 0.5rem;
+  height: 2.1rem;
+  margin: 2rem;
+  border-color: #3DA35D;
 }
 
 #buttonSignUp:hover { 
@@ -558,7 +590,7 @@ footer .enviar {
 }
 
 footer .enlaceRedes a img {
-  width: 20px;
+  width: 25px;
   margin-right: 1rem;
 }
 
