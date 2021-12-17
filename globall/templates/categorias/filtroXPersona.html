@@ -5,8 +5,8 @@
     <section>
         <div class="container" name= "POSTEOS DEL INDEX">
             <div class="row">
-                {% for a in post %}
                 <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
+                {% for a in post %}
                     <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
                         <figure>
                             <img class="imgPosteoPrincipal" src={{a.imagen.url}} alt="imgPosteoPrincipal">
@@ -28,10 +28,8 @@
                             <br>
                         </div>
                     </article>
-                </div>
                 {% endfor %}
-
-                
+                </div>
                 <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
                     <div class="containerSearch">
                         <form class="d-flex">

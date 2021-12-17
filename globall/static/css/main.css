@@ -218,6 +218,8 @@ img{
 .containerLosMasVistos{
 background-color: rgb(240, 240, 240);
 box-shadow: 0px 0px 5px rgb(0,0,0,.35);
+margin-left: auto;
+margin-bottom: auto;
 }
 
 /* FIN INDEX */
@@ -620,9 +622,13 @@ footer .enlaceRedes a img {
 }
 
 
+/* PAGINADOR */
 
+#pagination{
+  justify-content: center;
+}
 
-
+/* FIN PAGINADOR */
 .inicio{
     color: red;
 }

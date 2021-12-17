@@ -4,20 +4,37 @@ from django.urls import reverse_lazy
 from .models import Post, Categoria, Comentario
 from .forms import Formulario_alta_post, Formulario_alta_comentario
 from apps.usuarios.models import Usuario
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import random
+from django.db.models.query import QuerySet
+import datetime
 
 # Create your views here.
 
 
-
 def MostrarPosts(request):
 
-    p = Post.objects.all()
+    posts_list = Post.objects.all()
+    page = request.GET.get('page', 1)
 
-    ctx={}
-    ctx['post'] = p
-    ctx['titulo'] = "Hola soy la lista de posts"
+    paginator = Paginator(posts_list, 2)
 
-    return render(request,'posts/mostrarPosts.html', ctx)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    return render (request, 'posts/mostrarPosts.html', {'posts': posts})
+
+
+
+    #ctx={}
+    #ctx['post'] = p
+    #ctx['titulo'] = "Hola soy la lista de posts"
+
+    #return render(request,'posts/mostrarPosts.html', ctx)
 
 def DetallePost(request,pk):
 
@@ -116,3 +133,4 @@ def FiltroxAlianza(request, pk):
     ctx['categoria'] = categoria
 
     return render(request, 'categorias/filtroXAlianza.html', ctx)
+

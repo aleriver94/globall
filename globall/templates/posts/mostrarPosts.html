@@ -5,33 +5,31 @@
     <section>
         <div class="container" name= "POSTEOS DEL INDEX">
             <div class="row">
-                {% for a in post %}
                 <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
+                {% for post in posts %}
                     <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
                         <figure>
-                            <img class="imgPosteoPrincipal" src={{a.imagen.url}} alt="imgPosteoPrincipal">
+                            <img class="imgPosteoPrincipal" src={{post.imagen.url}} alt="imgPosteoPrincipal">
                         </figure>
                         <div>
-                            <time class="articleDate">{{a.fecha}} by {{a.usuario}}</time>
-                            <span><p>{{a.categoria}}</p></span>
-                            <h1>{{a.titulo}}</h1>
-                            <p>{{a.descripcion}}</p>
-                            <a href="{% url 'posts:detalle' a.pk %}">Leer más</a>
+                            <time class="articleDate">{{post.fecha}} by {{post.usuario}}</time>
+                            <span><p>{{post.categoria}}</p></span>
+                            <h1>{{post.titulo}}</h1>
+                            <p>{{post.descripcion}}</p>
+                            <a href="{% url 'posts:detalle' post.pk %}">Leer más</a>
                             <br>
 
-                            {% if a.video != NULL %}
+                            {% if post.video != NULL %}
                             <div>
-                                <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="560" height="315" class="center" src="{{post.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             
                             {% endif %}
                             <br>
                         </div>
                     </article>
-                </div>
-                {% endfor %}
-
-                
+                {% endfor %}  
+                </div>              
                 <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
                     <div class="containerSearch">
                         <form class="d-flex">
@@ -90,6 +88,27 @@
                 </div>    
             </div>
         </div>
+        {% if posts.has_other_pages %}
+        <ul class="pagination" id="pagination">
+            {% if posts.has_previous %}
+            <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+        {% for i in posts.paginator.page_range %}
+            {% if posts.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only"></span></span></li>
+            {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if posts.has_next %}
+            <li><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+        {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+        </ul>
+    {% endif %}
     </section>
 
 {% endblock contenido %}
