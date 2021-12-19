@@ -2,52 +2,92 @@
 {% load static %}
 {% block contenido %}
 
-    <main>
-        <section>
-            <div class="row justify-content-center">
-                <div>
-                    <h1 class="tituloCategorias">Sobre nosotros</h1>
-                </div>
-        </section>
-        <section class="sectionCards">
-            <div class="containerCards">
-                <div class="cards">
-                    <div class="cardIntegrante">
-                        <h3 class="card-tittle-large" name="Apellido">Torres</h3>
-                        <h5 class="card-tittle-small" name="Nombre Completo">Torres Luis Alejandro</h5>
-                        <p class="card-description" name="Descripcion"> <br><br> 27 Años. Estudiante, apasionado por la programación. Buscando ser desarrollador de Software Full Stack.</p>
+
+<section>
+    <div class="row justify-content-center">
+        <div>
+            <h1 class="tituloCategorias">Sobre nosotros</h1>
+        </div>
+</section>
+<section class="sectionCards">
+    <div class="containerCards">
+        <div class="cards">
+            <div class="cardCuerpo">
+                <div class="cardEncabezado">
+                    <img src="" alt="">
+                    <h5 name="Nombre Completo">Torres Luis Alejandro</h5>
+                </div> 
+                <div class="cardContenido" name="Descripcion">
+                    <div class="infoPersonal desplazar">Resistencia, Chaco </div>
+                    <div class="infoPersonal desplazar">27 Años.</div>
+                    <div class="infoPersonal desplazar">
+                        <p> Estudiante, apasionado por la programación. Buscando ser desarrollador de Software Full Stack.</p>
                     </div>
-                    <div class="cards">
-                        <div class="cardIntegrante">
-                            <h3 class="card-tittle-large">Apellido</h3>
-                            <h5 class="card-tittle-small">Nombre completo</h5>
-                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="cardIntegrante">
-                            <h3 class="card-tittle-large">Apellido</h3>
-                            <h5 class="card-tittle-small">Nombre completo</h5>
-                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="cardIntegrante">
-                            <h3 class="card-tittle-large">Apellido</h3>
-                            <h5 class="card-tittle-small">Nombre completo</h5>
-                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="cardIntegrante">
-                            <h3 class="card-tittle-large">Apellido</h3>
-                            <h5 class="card-tittle-small">Nombre completo</h5>
-                            <p class="card-description"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus nisi sint hic nobis sit sequi, inventore saepe, amet pariatur voluptatum culpa excepturi, dolores distinctio dolorum ad voluptatem itaque quaerat non?</p>
-                        </div>
-                    </div>
-                </div>
+                </div>  
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="cards">
+            <div class="cardCuerpo">
+                <div class="cardEncabezado">
+                    <img src="" alt="">
+                    <h5 name="Nombre Completo">Nombre completo</h5>
+                </div> 
+                <div class="cardContenido" name="Descripcion">
+                    <div class="infoPersonal desplazar">Resistencia, Chaco </div>
+                    <div class="infoPersonal desplazar">Años.</div>
+                    <div class="infoPersonal desplazar">
+                        <p> Descripción.</p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="cards">
+            <div class="cardCuerpo">
+                <div class="cardEncabezado">
+                    <img src="{% static 'img/maca.jpg' %}" alt="">
+                    <h5 name="Nombre Completo">Aguirre Macarena Anahí</h5>
+                </div> 
+                <div class="cardContenido" name="Descripcion">
+                    <div class="infoPersonal desplazar">Resistencia, Chaco </div>
+                    <div class="infoPersonal desplazar">26 Años.</div>
+                    <div class="infoPersonal desplazar">
+                        <p> Diseñadora gráfica, apasionada por UX/UI y por el desarrollo frontend. Constante busco en especializarme y seguir expandiendo conocimientos.</p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="cards">
+            <div class="cardCuerpo">
+                <div class="cardEncabezado">
+                    <img src="" alt="">
+                    <h5 name="Nombre Completo">Nombre completo</h5>
+                </div> 
+                <div class="cardContenido" name="Descripcion">
+                    <div class="infoPersonal desplazar">Resistencia, Chaco </div>
+                    <div class="infoPersonal desplazar"> Años.</div>
+                    <div class="infoPersonal desplazar">
+                        <p> Descripción</p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="cards">
+            <div class="cardCuerpo">
+                <div class="cardEncabezado">
+                    <img src="" alt="">
+                    <h5 name="Nombre Completo">Nombre completo</h5>
+                </div> 
+                <div class="cardContenido" name="Descripcion">
+                    <div class="infoPersonal desplazar">Resistencia, Chaco </div>
+                    <div class="infoPersonal desplazar"> Años.</div>
+                    <div class="infoPersonal desplazar">
+                        <p> Descripción</p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {% endblock contenido %}

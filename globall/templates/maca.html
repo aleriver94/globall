@@ -538,25 +538,58 @@ PLANETA DETALLE
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9" >
-                            <article class="containerNoticias">
+                            {% if post.imagen.url != NULL %}
+                            <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
                                 <figure>
-                                    <img class="imgPosteoPrincipal" src="../img/PokemonPi.jpg" alt="imgPosteoPrincipal">
+                                    <img class="imgPosteoPrincipal" src={{post.imagen.url}} alt="imgPosteoPrincipal">
                                 </figure>
+                            {% endif %}
                                 <div>
-                                    <time class="articleDate">Diciembre 6 2021</time>
-                                    <span><p>Planeta</p></span>
-                                    <h1>Lorem ipsum, dolor sit amet consectetur </h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque recusandae eum possimus ipsam, minus optio est. Dignissimos porro, vel, reiciendis tenetur ex nostrum nam eum voluptatum, sint magni ea?
-                                        Earum dignissimos ut soluta consequuntur, incidunt nisi quos cum itaque accusantium, voluptate tempore voluptas. Facere asperiores hic id illum officia eaque repudiandae vitae quia atque ipsum. Nulla quasi recusandae aspernatur.
-                                        Sequi quasi ab accusamus nam animi libero cumque tempora saepe quidem voluptatum laboriosam praesentium beatae officia soluta ipsa minus velit neque, pariatur perspiciatis labore eius. Nostrum omnis eius eos sint.Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque recusandae eum possimus ipsam, minus optio est. Dignissimos porro, vel, reiciendis tenetur ex nostrum nam eum voluptatum, sint magni ea?
-                                        Earum dignissimos ut soluta consequuntur, incidunt nisi quos cum itaque accusantium, voluptate tempore voluptas. Facere asperiores hic id illum officia eaque repudiandae vitae quia atque ipsum. Nulla quasi recusandae aspernatur.
-                                        Sequi quasi ab accusamus nam animi libero cumque tempora saepe quidem voluptatum laboriosam praesentium beatae officia soluta ipsa minus velit neque, pariatur perspiciatis labore eius. Nostrum omnis eius eos sint.Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque recusandae eum possimus ipsam, minus optio est. Dignissimos porro, vel, reiciendis tenetur ex nostrum nam eum voluptatum, sint magni ea?
-                                        Earum dignissimos ut soluta consequuntur, incidunt nisi quos cum itaque accusantium, voluptate tempore voluptas. Facere asperiores hic id illum officia eaque repudiandae vitae quia atque ipsum. Nulla quasi recusandae aspernatur.
-                                        Sequi quasi ab accusamus nam animi libero cumque tempora saepe quidem voluptatum laboriosam praesentium beatae officia soluta ipsa minus velit neque, pariatur perspiciatis labore eius. Nostrum omnis eius eos sint.Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cumque recusandae eum possimus ipsam, minus optio est. Dignissimos porro, vel, reiciendis tenetur ex nostrum nam eum voluptatum, sint magni ea?
-                                        Earum dignissimos ut soluta consequuntur, incidunt nisi quos cum itaque accusantium, voluptate tempore voluptas. Facere asperiores hic id illum officia eaque repudiandae vitae quia atque ipsum. Nulla quasi recusandae aspernatur.
-                                        Sequi quasi ab accusamus nam animi libero cumque tempora saepe quidem voluptatum laboriosam praesentium beatae officia soluta ipsa minus velit neque, pariatur perspiciatis labore eius. Nostrum omnis eius eos sint.</p>
+                                    <h1>{{ post.titulo }}</h1>
+                                    <span><p>{{ post.fecha }}</p></span>
+                                    <p>{{post.descripcion}}</p>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    {% if a.video != NULL %}
+                                    <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    
+                                    {% endif %}
                                 </div>
                             </article>
+                            <b>{{post.nombre}}</b><br>
+    
+    
+                            <a href="{% url 'posts:mostrar_comentario' post.pk %}">Comentarios</a>
+                            <a href="{% url 'posts:alta_comentario' post.pk %}">Comentar</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% endblock contenido %}
+
+<p>Birthday: {{ birthday|date:"M d, Y" }}</p>
+
+<form action="" class="form_comentarios d-flex justify-content-end flex-wrap">
+    <a href="{% url 'posts:mostrar_comentario' post.pk %}"></a><textarea name="" id="" placeholder="Comentarios"></textarea></a>
+    <a href="{% url 'posts:alta_comentario' post.pk %}"></a><button class="btn" type="button">Comentar</button></a>
+</form>
+
+
+<div class="container">
+    <div class="row comentarios justify-content-center">
+        <div class="col-md-8" >
+            <div class="containerNoticias">
+                <form  method="POST"class="form_comentarios d-flex justify-content-end flex-wrap">
+                    {{form.errors}}
+                    {{form.as_p}}
+                    <button class="btn" type="button">Comentar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
                             <div class="container">
                                 <div class="row comentarios justify-content-center">
                                     <div class="col-md-8" >

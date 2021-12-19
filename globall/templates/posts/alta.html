@@ -2,10 +2,22 @@
 
 {% block contenido %}
 
-        <form method="POST" enctype="multipart/form-data">{%csrf_token%}
-            {{form.errors}}
-            {{form.as_p}}
-            <input type="submit" name="" value="CREAR POST">
-        </form>
-
+<div class="container contenedorCrearPost">
+    <div class="row justify-content-center">
+        <div class="col-md-4" >
+            <form method="POST"  class="form_comentarios d-flex justify-content-start flex-wrap" enctype="multipart/form-data">{%csrf_token%}
+                {{form.errors}}
+                {{form.as_p}}
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="justify-content-center text-center ">
+                            <input class="crearPost" type="submit" name="" value="Crear post">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock contenido %}
+

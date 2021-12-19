@@ -17,8 +17,8 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg miMenu">
             <div class="container-fluid">
-                <a class="navbar-brand px-5" href=" {% url 'index' %}">
-                    <img src="{% static 'img/globAllBlanco.svg' %}" alt="logo globALL" width="130" height="70">
+                <a class="navbar-brand px-4" href=" {% url 'index' %}">
+                    <img src="{% static 'img/globAllBlanco.svg' %}" alt="logo globALL" width="150" height="70">
                 </a>
                 <br>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,11 +35,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{% url 'posts:mostrar_posts' %}">Todas</a></li>
-                                <li><a class="dropdown-item" href="{% url 'posts:filtroPersona' 3 %}">Personas</a></li>
-                                <li><a class="dropdown-item" href="{% url 'posts:filtroProsperidad' 4 %}">Prosperidad</a></li>
-                                <li><a class="dropdown-item" href="{% url 'posts:filtroPlaneta' 5 %}">Planeta</a></li>
-                                <li><a class="dropdown-item" href="{% url 'posts:filtroPaz' 7 %}">Paz</a></li>
                                 <li><a class="dropdown-item" href="{% url 'posts:filtroAlianza' 6 %}">Alianzas</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroPaz' 7 %}">Paz</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroPersona' 3 %}">Personas</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroPlaneta' 5 %}">Planeta</a></li>
+                                <li><a class="dropdown-item" href="{% url 'posts:filtroProsperidad' 4 %}">Prosperidad</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -47,16 +47,17 @@
                                 Acerca de
                             </a>
                             <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'acerca:las_ods' %}">¿Qué son las ODS?</a></li>
-                                <li><a class="dropdown-item" href="{% url 'acerca:acerca_nosotros' %}">¿Quiénes somos?</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'acerca:las_ods' %}">ODS</a></li>
+                                <li><a class="dropdown-item" href="{% url 'acerca:acerca_nosotros' %}">Nosotros</a></li>
                             </ul>
                         </li>
                         {% if user.is_authenticated %}
                             <span id="usuarioBienvenido">Bienvenido {{ user.username }}</span> 
-                            <a class="btn btn-outline-success" id="buttonSignUp" href="{% url 'logout' %}">Cerrar Sesion</a>
+                            <a class="btn btn-outline-success" id="buttonpost"  href="{% url 'posts:alta_post' %}">Crear post </a>
+                            <a  href="{% url 'logout' %}"><button class="buttonNav">CERRAR SESION</button> </a>
                         {% else %}
                             <a class="btn btn-outline-success" id="buttonLogin" href="{% url 'login' %}">Login</a>
-                            <a class="btn btn-outline-success" id="buttonSignUp" href="{% url 'signup' %}">Registro</a>
+                            <a  href="{% url 'signup' %}"><button class="buttonNav"> Registro</button></a>
                         {% endif %}
                     </ul>
                 </div>

@@ -8,16 +8,14 @@
                 <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
                 {% for post in posts %}
                     <article class="containerNoticias" name="ACA VA EL POST PRINCIPAL">
-                        <figure>
                             <img class="imgPosteoPrincipal" src={{post.imagen.url}} alt="imgPosteoPrincipal">
-                        </figure>
                         <div>
                             <time class="articleDate">{{post.fecha}} by {{post.usuario}}</time>
                             <span><p>{{post.categoria}}</p></span>
                             <h1>{{post.titulo}}</h1>
                             <p>{{post.descripcion}}</p>
                             <a href="{% url 'posts:detalle' post.pk %}">Leer más</a>
-                            <br>
+
 
                             {% if post.video != NULL %}
                             <div>
@@ -25,7 +23,7 @@
                             </div>
                             
                             {% endif %}
-                            <br>
+
                         </div>
                     </article>
                 {% endfor %}  

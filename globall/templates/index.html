@@ -22,26 +22,26 @@
                         <div>
                             <iframe width="560" height="315" class="center" src="{{post.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        
+
                         {% endif %}
-                        <br>
                     </div>
                 </article>
-            </div>
-
-            
-            <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
-                <div class="containerSearch">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    </form>
-                    <div class="container">
-                        <h3>Los más vistos</h3>
-                    </div>
+                <div class="text-center justify-content-start">
+                    <a href="{% url 'posts:mostrar_posts' %}"><button>Ir a posts</button> </a>
                 </div>
+            </div>
+            <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
                 <div class="container" name="POSTS MAS VISITADOS">
                     <div class="row">
                         <div class="col-md-12" name="PRIMER POST MAS VISITADO">
+                            <div class="containerSearch">
+                                <form class="d-flex">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                </form>
+                                <div class="container">
+                                    <h3>Los más vistos</h3>
+                                </div>
+                            </div>
                             <div class="containerNoticias">
                                 <time class="articleDate">Noviembre 20 2021</time>
                                 <a href="./pages/catPlanetaDetalle.html"><span><p>Planeta</p></span></a>
@@ -89,6 +89,6 @@
         </div>
     </div>
 </section>
-<a href="{% url 'posts:alta_post' %}">CREAR POST</a>
-<a href="{% url 'posts:mostrar_posts' %}">IR A POSTS</a>
+
+
 {% endblock contenido %}

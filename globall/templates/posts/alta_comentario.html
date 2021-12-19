@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-
-        <form method="POST" enctype="multipart/form-data">{%csrf_token%}
-            {{form.errors}}
-            {{form.as_p}}
-            <input type="submit" name="" value="COMENTAR">
-        </form>
-
+<div class="container contenedorCrearPost">
+    <div class="row justify-content-center">
+        <div class="col-md-4" >
+            <form method="POST"  class="form_comentarios d-flex justify-content-start flex-wrap" enctype="multipart/form-data">{%csrf_token%}
+                {{form.errors}}
+                {{form.as_p}}
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="justify-content-center text-center ">
+                            <input type="submit" name="" class="buttonInput" value="COMENTAR">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock contenido %}
+
