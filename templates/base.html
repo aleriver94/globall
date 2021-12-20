@@ -42,6 +42,9 @@
                                 <li><a class="dropdown-item" href="{% url 'posts:filtroProsperidad' 4 %}">Prosperidad</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href=" {% url 'posts:filtroFechaActual' %}">Hoy</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                 Acerca de
@@ -52,7 +55,7 @@
                             </ul>
                         </li>
                         {% if user.is_authenticated %}
-                            <span id="usuarioBienvenido">Bienvenido {{ user.username }}</span> 
+                            <span id="usuarioBienvenido">Bienvenido/a {{ user.username }}</span> 
                             <a class="btn btn-outline-success" id="buttonpost"  href="{% url 'posts:alta_post' %}">Crear post </a>
                             <a  href="{% url 'logout' %}"><button class="buttonNav">CERRAR SESION</button> </a>
                         {% else %}
@@ -65,7 +68,6 @@
         </nav> 
     </header>
     {% block contenido %}
-
     {% endblock contenido %}
     <footer>
         <div class="container">

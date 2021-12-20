@@ -5,12 +5,13 @@ from .models import Post, Categoria, Comentario
 from .forms import Formulario_alta_post, Formulario_alta_comentario
 from apps.usuarios.models import Usuario
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import random
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
 import datetime
+import random
 
 # Create your views here.
-
 
 def MostrarPosts(request):
 
@@ -43,6 +44,7 @@ def DetallePost(request,pk):
     ctx['post'] = p
     return render(request, 'posts/detallePost.html', ctx)
 
+
 def MostrarComentarios(request, pk):
 
     post = Post.objects.get(pk=pk)
@@ -54,7 +56,8 @@ def MostrarComentarios(request, pk):
 
     return render(request, 'posts/mostrarComentarios.html', ctx)
 
-class AltaPost(CreateView):
+
+class AltaPost(LoginRequiredMixin, CreateView):
     model = 'Post'
     template_name = 'posts/alta.html'
     form_class = Formulario_alta_post
@@ -64,7 +67,7 @@ class AltaPost(CreateView):
         form.instance.usuario = self.request.user
         return super().form_valid(form)
 
-class AltaComentario(CreateView):
+class AltaComentario(LoginRequiredMixin, CreateView):
     model = 'Comentario'
     template_name = 'posts/alta_comentario.html'
     form_class = Formulario_alta_comentario
@@ -88,6 +91,14 @@ def FiltroxPersona(request, pk):
     ctx = {}
     ctx['post'] = p
 
+    p2=Post.objects.all()
+    a2= random.choice(p2)
+    a3= random.choice(p2)
+    a4= random.choice(p2)
+    ctx['lateral']=a2
+    ctx['lateral2']=a3
+    ctx['lateral3']=a4
+
     return render(request, 'categorias/filtroXPersona.html', ctx)
 
 def FiltroxPaz(request, pk):
@@ -98,6 +109,13 @@ def FiltroxPaz(request, pk):
     ctx = {}
     ctx['post'] = p
     ctx['categoria'] = categoria
+    p2=Post.objects.all()
+    a2= random.choice(p2)
+    a3= random.choice(p2)
+    a4= random.choice(p2)
+    ctx['lateral']=a2
+    ctx['lateral2']=a3
+    ctx['lateral3']=a4
 
     return render(request, 'categorias/filtroXPaz.html', ctx)
 
@@ -109,7 +127,13 @@ def FiltroxPlaneta(request, pk):
     ctx = {}
     ctx['post'] = p
     ctx['categoria'] = categoria
-
+    p2=Post.objects.all()
+    a2= random.choice(p2)
+    a3= random.choice(p2)
+    a4= random.choice(p2)
+    ctx['lateral']=a2
+    ctx['lateral2']=a3
+    ctx['lateral3']=a4
     return render(request, 'categorias/filtroXPlaneta.html', ctx)
 
 def FiltroxProsperidad(request, pk):
@@ -120,7 +144,13 @@ def FiltroxProsperidad(request, pk):
     ctx = {}
     ctx['post'] = p
     ctx['categoria'] = categoria
-
+    p2=Post.objects.all()
+    a2= random.choice(p2)
+    a3= random.choice(p2)
+    a4= random.choice(p2)
+    ctx['lateral']=a2
+    ctx['lateral2']=a3
+    ctx['lateral3']=a4
     return render(request, 'categorias/filtroXProsperidad.html', ctx)
 
 def FiltroxAlianza(request, pk):
@@ -131,6 +161,25 @@ def FiltroxAlianza(request, pk):
     ctx = {}
     ctx['post'] = p
     ctx['categoria'] = categoria
-
+    p2=Post.objects.all()
+    a2= random.choice(p2)
+    a3= random.choice(p2)
+    a4= random.choice(p2)
+    ctx['lateral']=a2
+    ctx['lateral2']=a3
+    ctx['lateral3']=a4
     return render(request, 'categorias/filtroXAlianza.html', ctx)
 
+def FiltroXFechaActual(request):
+
+    list_post = Post.objects.filter(fecha=datetime.datetime.now())
+    ctx = {}
+    ctx['posts'] = list_post
+    p2=Post.objects.all()
+    a2= random.choice(p2)
+    a3= random.choice(p2)
+    a4= random.choice(p2)
+    ctx['lateral']=a2
+    ctx['lateral2']=a3
+    ctx['lateral3']=a4
+    return render(request, 'posts/filtroXFechaActual.html', ctx)

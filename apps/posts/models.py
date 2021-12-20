@@ -36,5 +36,3 @@ class Comentario(models.Model):
 	def __str__(self):
 		return (self.descripcion)
 
-
-#richTextField importar ckeditor para comentario_descripcion

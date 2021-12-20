@@ -34,57 +34,54 @@
                         <div class="row">
                             <div class="col-md-12" name="PRIMER POST MAS VISITADO">
                                 <div class="containerSearch">
-                                    <form class="d-flex">
-                                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                    </form>
                                     <div class="container">
-                                        <h3>Los más vistos</h3>
+                                        <h3>Más Posts</h3>
                                     </div>
                                 </div>
                                 <div class="containerNoticias">
-                                    <time class="articleDate">Noviembre 20 2021</time>
-                                    <a href="./pages/catPlanetaDetalle.html"><span><p>Planeta</p></span></a>
-                                    <h4>Lorem ipsum, dolor sit amet consectetur </h4>
-                                    <a class="linkPosteos" href="./pages/catPlanetaDetalle.html">Leer más</a>
+                                    <time class="articleDate">{{lateral.fecha}}</time>
+                                    <a><span><p>{{lateral.categoria}}</p></span></a>
+                                    <h4>{{lateral.titulo}} </h4>
+                                    <a class="linkPosteos" href="{% url 'posts:detalle' lateral.pk %}">Leer más</a>
                                 </div>
                                 <div class="containerNoticias">
                                     <figure>
-                                        <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
+                                        <img class="imgPosteoSecundario" src="{{lateral.imagen.url}}" alt="imgPosteoSecundario">
                                     </figure>
                                     <hr>
                                 </div>
                             </div>
                             <div class="col-md-12" name="SEGUNDO POST MAS VISITADO">
                                 <div class="containerNoticias" name="">
-                                    <time class="articleDate">Noviembre 20 2021</time>
-                                    <a href="./pages/catAlianzaDetalle.html"><span><p>Alianza</p></span></a>
-                                    <h4>Lorem ipsum, dolor sit amet consectetur </h4>
-                                    <a class="linkPosteos" href="./pages/catAlianzaDetalle.html">Leer más</a>
+                                    <time class="articleDate">{{lateral2.fecha}}</time>
+                                    <a><span><p>{{lateral2.categoria}}</p></span></a>
+                                    <h4>{{lateral2.titulo}} </h4>
+                                    <a class="linkPosteos" href="{% url 'posts:detalle' lateral2.pk %}">Leer más</a>
                                 </div>
                                 <div class="containerNoticias">
                                     <figure>
-                                        <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
+                                        <img class="imgPosteoSecundario" src="{{lateral2.imagen.url}}" alt="imgPosteoSecundario">
                                     </figure>
                                     <hr>
                                 </div>
                             </div>
                             <div class="col-md-12" name="TERCER POST MAS VISITADO">
                                 <div class="containerNoticias">
-                                    <time class="articleDate">Noviembre 20 2021</time>
-                                    <a href="./pages/catPersonas.html"><span><p>Persona</p></span></a>
-                                    <h4>Lorem ipsum, dolor sit amet consectetur </h4>
-                                    <a class="linkPosteos" href="./pages/catPersonasDetalle.html">Leer más</a>
+                                    <time class="articleDate">{{lateral3.fecha}}</time>
+                                    <a><span><p>{{lateral3.categoria}}</p></span></a>
+                                    <h4>{{lateral3.titulo}}</h4>
+                                    <a class="linkPosteos" href="{% url 'posts:detalle' lateral3.pk %}">Leer más</a>
                                 </div>
                                 <div class="containerNoticias">
                                     <figure>
-                                        <img class="imgPosteoSecundario" src="./img/pokemon.jpg" alt="imgPosteoSecundario">
+                                        <img class="imgPosteoSecundario" src="{{lateral3.imagen.url}}" alt="imgPosteoSecundario">
                                     </figure>
                                     <hr>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>      
+                </div>       
             </div>
         </div>
     </section>

@@ -16,8 +16,8 @@
                 <p>{{ post.fecha }}</p>
                 <p>{{post.descripcion}}</p>
             </div>
-            {% if a.video != NULL %}
-            <iframe width="560" height="315" class="center" src="{{a.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% if post.video != NULL %}
+            <iframe width="560" height="315" class="center" src="{{post.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             
             {% endif %}
             <b>{{post.nombre}}</b><br>

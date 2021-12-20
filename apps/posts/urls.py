@@ -25,4 +25,6 @@ urlpatterns = [
 
     path('filtroAlianza/<int:pk>', views.FiltroxAlianza, name = 'filtroAlianza'),
 
+    path('filtroFechaHoy/', views.FiltroXFechaActual, name = 'filtroFechaActual'),
+
 ]
