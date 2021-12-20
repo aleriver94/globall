@@ -35,11 +35,13 @@
                         <div class="row">
                             <div class="col-md-12" name="PRIMER POST MAS VISITADO">
                                 <div class="containerSearch">
-                                    <form class="d-flex">
+                                    <form action = "{% url 'posts:busqueda' %}" method="GET" class="d-flex">
+                                        {% csrf_token %}
+                                        <input class="form-control me-2" name="q" type="search" placeholder="Busqueda por titulo" aria-label="Search">
                                     </form>
-                                    <div class="container">
-                                        <h3>Más Posts</h3>
-                                    </div>
+                                </div>
+                                <div class="container">
+                                    <h3>Más Posts</h3>
                                 </div>
                                 <div class="containerNoticias">
                                     <time class="articleDate">{{lateral.fecha}}</time>
