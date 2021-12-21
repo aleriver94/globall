@@ -7,10 +7,10 @@
     <div class="container">
         <div class="row comentarios justify-content-center">
             <div class="col-md-8" >        
-                <p class="titulo">
-                    <span>{{a.usuario}}</span>
-                    <span>{{a.descripcion}}</span>
-                </p>
+                <div class="media">
+                    <p class="nombre">{{a.usuario}}</p>
+                    <p id="comentario">{{a.descripcion}}</p>
+                </div>
             </div>  
         </div>
     </div>
@@ -26,3 +26,20 @@
 
 
 {% endblock contenido %}
+<div class="media">
+    <img src="../img/persona3.jpg" width="64" height="64" alt="">
+    <div class="media">
+        <p class="nombre">nombre.usuario <span>21:28pm, hoy</span></p>
+        <p class="comentario">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil vel soluta placeat mollitia velit ullam reprehenderit, et eligendi unde dolor neque pariatur voluptatem sed aliquam rem tenetur cum aperiam iure?
+            Molestias numquam inventore animi hic voluptatum tempore ipsum ad, accusamus quos quis, facilis necessitatibus illum, totam deleniti quae maxime? Reprehenderit, labore. Laboriosam exercitationem corporis possimus deserunt aut dolore, et eaque.
+            Esse earum pariatur itaque explicabo, architecto commodi molestias obcaecati facilis! Magni, animi! Expedita dolore assumenda dolores saepe voluptatem quibusdam tempora omnis nam magnam impedit? Repudiandae deserunt consectetur amet praesentium voluptatum!
+        </p>
+        <div class="botones text-right">
+            <a href="#">Responder</a>
+            <a href="#">Editar</a>
+            <a href="#">Borrar</a>
+        </div>
+    </div>
+</div>
+</div>

@@ -16,7 +16,6 @@
                             <p>{{post.descripcion}}</p>
                             <a href="{% url 'posts:detalle' post.pk %}">Leer más</a>
 
-
                             {% if post.video != NULL %}
                             <div>
                                 <iframe width="560" height="315" class="center" src="{{post.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
