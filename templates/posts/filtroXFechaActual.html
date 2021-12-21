@@ -5,12 +5,12 @@
     <section>
         <div class="container" name= "POSTEOS DEL INDEX">
             <div class="row">
-                <div class="col-md-9" name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
+                <div name="COLUMNA DE 3 POSTEOS, UNO GRANDE, DOS CHICOS" >
                 {% if not posts %}
                 <br>
                 <br>
                 <br>
-                <img class="imagentriste" src="{% static 'img/sadly.png' %}" alt="cara triste"></img>
+                <img class="containerimg" src="{% static 'img/sadly.png' %}" alt="cara triste"></img>
                 <span class="titulo">No hay posts hoy</span>
                 {% else %}
                 {% for a in posts %}
@@ -38,64 +38,7 @@
                         </article>
                     {% endfor %}
                 {% endif %}
-                </div>
-                <div class="col-md-3 containerLosMasVistos" name="ACA VA LA SECCION DE LA DERECHA, LOS MAS VISTOS">
-                    <div class="container" name="POSTS MAS VISITADOS">
-                        <div class="row">
-                            <div class="col-md-12" name="PRIMER POST MAS VISITADO">
-                                <div class="containerSearch">
-                                    <form action = "{% url 'posts:busqueda' %}" method="GET" class="d-flex">
-                                        {% csrf_token %}
-                                        <input class="form-control me-2" name="q" type="search" placeholder="Busqueda por titulo" aria-label="Search">
-                                    </form>
-                                </div>
-                                <div class="container">
-                                    <h3>Más Posts</h3>
-                                </div>
-                                <div class="containerNoticias">
-                                    <time class="articleDate">{{lateral.fecha}}</time>
-                                    <a><span><p>{{lateral.categoria}}</p></span></a>
-                                    <h4>{{lateral.titulo}} </h4>
-                                    <a class="linkPosteos" href="{% url 'posts:detalle' lateral.pk %}">Leer más</a>
-                                </div>
-                                <div class="containerNoticias">
-                                    <figure>
-                                        <img class="imgPosteoSecundario" src="{{lateral.imagen.url}}" alt="imgPosteoSecundario">
-                                    </figure>
-                                    <hr>
-                                </div>
-                            </div>
-                            <div class="col-md-12" name="SEGUNDO POST MAS VISITADO">
-                                <div class="containerNoticias" name="">
-                                    <time class="articleDate">{{lateral2.fecha}}</time>
-                                    <a><span><p>{{lateral2.categoria}}</p></span></a>
-                                    <h4>{{lateral2.titulo}} </h4>
-                                    <a class="linkPosteos" href="{% url 'posts:detalle' lateral2.pk %}">Leer más</a>
-                                </div>
-                                <div class="containerNoticias">
-                                    <figure>
-                                        <img class="imgPosteoSecundario" src="{{lateral2.imagen.url}}" alt="imgPosteoSecundario">
-                                    </figure>
-                                    <hr>
-                                </div>
-                            </div>
-                            <div class="col-md-12" name="TERCER POST MAS VISITADO">
-                                <div class="containerNoticias">
-                                    <time class="articleDate">{{lateral3.fecha}}</time>
-                                    <a><span><p>{{lateral3.categoria}}</p></span></a>
-                                    <h4>{{lateral3.titulo}}</h4>
-                                    <a class="linkPosteos" href="{% url 'posts:detalle' lateral3.pk %}">Leer más</a>
-                                </div>
-                                <div class="containerNoticias">
-                                    <figure>
-                                        <img class="imgPosteoSecundario" src="{{lateral3.imagen.url}}" alt="imgPosteoSecundario">
-                                    </figure>
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>     
+                </div>   
             </div>
         </div>
     </section>

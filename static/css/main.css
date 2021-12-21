@@ -693,6 +693,10 @@ footer label input{
 footer {
   background-color: #E8FCCF;
   height: auto;
+  position: fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
 }
 
 footer .enviar {
@@ -765,10 +769,18 @@ footer .enlaceRedes a img {
 }
 .titulo{
     text-align: center;
+    display: block;
+    margin: auto;
 }
 
 .center {
     margin-left: auto;
     margin-right: auto;
-    display: block
+}
+
+.containerimg{
+  width: auto;
+  height: 150px;
+  display: block;
+  margin: auto;
 }
